@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+transformers
+peft
+torch
+python-dotenv
+google-generativeai
+gdown
+pydantic
+huggingface_hub
+accelerate
