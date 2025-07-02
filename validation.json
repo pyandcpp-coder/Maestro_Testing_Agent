@@ -1,0 +1,850 @@
+[
+    {
+      "instruction": "Launch the application with its state cleared and keychain also cleared.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp:\n    clearState: true\n    clearKeychain: true"
+    },
+    {
+      "instruction": "Tap on the element with text 'Proceed to Payment'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: \"Proceed to Payment\""
+    },
+    {
+      "instruction": "Assert that the element with ID 'confirmationMessage' and text 'Success' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"confirmationMessage\"\n    text: \"Success\""
+    },
+    {
+      "instruction": "Enter 'john.doe@example.com' into the input field identified by 'emailInput'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"emailInput\" }\n- inputText: \"john.doe@example.com\""
+    },
+    {
+      "instruction": "Scroll upwards until the 'pageTitleHeader' element becomes visible, with a timeout of 15 seconds.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"pageTitleHeader\" }\n    direction: UP\n    timeout: 15000"
+    },
+    {
+      "instruction": "Execute the 'checkout_flow_part1.yaml' flow, providing 'cartId' as 'CART123' in the environment.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    file: \"checkout_flow_part1.yaml\"\n    env:\n      cartId: \"CART123\""
+    },
+    {
+      "instruction": "Retry tapping the 'refresh_button' up to 2 times if the initial tap fails.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 2\n    commands:\n      - tapOn: { id: \"refresh_button\" }"
+    },
+    {
+      "instruction": "Repeat the action of tapping 'next_item_button' 3 times, with a 200ms delay between each tap.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"next_item_button\"\n    repeat: 3\n    delay: 200"
+    },
+    {
+      "instruction": "Use AI to assert that the current screen displays a valid credit card input form.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertWithAI:\n    assertion: \"The current screen displays a form for credit card input, including fields for card number, expiry date, and CVV.\""
+    },
+    {
+      "instruction": "Run the 'data_processor.js' script.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript: \"data_processor.js\""
+    },
+    {
+      "instruction": "Evaluate a script to set 'output.paymentSuccessful' to true.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.paymentSuccessful = true}\""
+    },
+    {
+      "instruction": "Tap on the 'Cancel' button, labeling this action 'User cancels operation'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    text: \"Cancel\"\n    label: \"User cancels operation\""
+    },
+    {
+      "instruction": "Assert that the 'loading_spinner' is visible and not enabled (dimmed).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"loading_spinner\"\n    enabled: false"
+    },
+    {
+      "instruction": "Input a random 8-digit number into the 'phoneNumberField'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"phoneNumberField\" }\n- inputRandomNumber:\n    length: 8"
+    },
+    {
+      "instruction": "Launch the app. Tap 'Get Started'. Then assert 'WelcomeTutorial' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp\n- tapOn: \"Get Started\"\n- assertVisible: { id: \"WelcomeTutorial\" }"
+    },
+    {
+      "instruction": "Tap on the screen at coordinates 200,350.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    point: \"200,350\""
+    },
+    {
+      "instruction": "Assert that the element with text 'Optional Feature Preview' is visible, but if not, continue the test.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    text: \"Optional Feature Preview\"\n    optional: true"
+    },
+    {
+      "instruction": "Enter 'My Test Address, Apt 101' into the element with ID 'addressLine1'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"addressLine1\" }\n- inputText: \"My Test Address, Apt 101\""
+    },
+    {
+      "instruction": "Scroll left on the 'horizontalImageScroller' until 'firstImage' is visible, using slow speed.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"firstImage\" }\n    direction: LEFT\n    speed: 20\n    # Assuming horizontalImageScroller is parent"
+    },
+    {
+      "instruction": "Run an inline flow: tap 'AcceptButton', then assert 'TermsAcceptedMessage' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    commands:\n      - tapOn: { id: \"AcceptButton\" }\n      - assertVisible: { id: \"TermsAcceptedMessage\" }"
+    },
+    {
+      "instruction": "Press the Android system back button and verify 'previousScreenTitle' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- back\n- assertVisible: { id: \"previousScreenTitle\" }"
+    },
+    {
+      "instruction": "Add './test_assets/sample_image.png' to the device media gallery.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- addMedia:\n    - \"./test_assets/sample_image.png\""
+    },
+    {
+      "instruction": "Copy text from the element identified by 'promoCodeDisplay'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- copyTextFrom: { id: \"promoCodeDisplay\" }"
+    },
+    {
+      "instruction": "Double tap on the 'mapZoomInButton' with a delay of 150ms.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- doubleTapOn:\n    id: \"mapZoomInButton\"\n    delay: 150"
+    },
+    {
+      "instruction": "Erase 5 characters from the currently focused input field.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- eraseText: 5"
+    },
+    {
+      "instruction": "Wait for 25 seconds for the 'dataSynchronizationComplete' element to become not visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- extendedWaitUntil:\n    notVisible: { id: \"dataSynchronizationComplete\" }\n    timeout: 25000"
+    },
+    {
+      "instruction": "Dismiss the software keyboard if it is open.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- hideKeyboard"
+    },
+    {
+      "instruction": "Kill the app 'com.qoneqt.qoneqt.debug'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- killApp: \"com.qoneqt.qoneqt.debug\""
+    },
+    {
+      "instruction": "Long press on the 'archiveEmailButton'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- longPressOn: { id: \"archiveEmailButton\" }"
+    },
+    {
+      "instruction": "Open the deep link 'qoneqt://user/profile/edit?id=789'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- openLink: \"qoneqt://user/profile/edit?id=789\""
+    },
+    {
+      "instruction": "Tap on 'couponCodeField', then paste the copied text.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"couponCodeField\" }\n- pasteText"
+    },
+    {
+      "instruction": "Press the 'Home' key, then launch the app again without stopping it.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"Home\"\n- launchApp:\n    stopApp: false"
+    },
+    {
+      "instruction": "Perform a default scroll action on the current view.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scroll"
+    },
+    {
+      "instruction": "Set the device location to Paris, France (approximate coordinates).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- setLocation:\n    latitude: 48.8566\n    longitude: 2.3522"
+    },
+    {
+      "instruction": "Start recording the screen, save the file as 'user_registration_test'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- startRecording: \"user_registration_test\""
+    },
+    {
+      "instruction": "Stop the application with bundle ID 'com.qoneqt.qoneqt.enterprise'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- stopApp: \"com.qoneqt.qoneqt.enterprise\""
+    },
+    {
+      "instruction": "Stop any active screen recording.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- stopRecording"
+    },
+    {
+      "instruction": "Swipe right on the 'tutorial_slide_3' element.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- swipe:\n    from: { id: \"tutorial_slide_3\" }\n    direction: RIGHT"
+    },
+    {
+      "instruction": "Take a screenshot and name it 'SettingsScreen_DarkMode'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- takeScreenshot: \"SettingsScreen_DarkMode\""
+    },
+    {
+      "instruction": "Wait for a loading animation to finish, with a 7 second timeout.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- waitForAnimationToEnd:\n    timeout: 7000"
+    },
+    {
+      "instruction": "Launch the app with calendar permission set to 'unset' and contacts to 'allow'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp:\n    permissions:\n      calendar: unset\n      contacts: allow"
+    },
+    {
+      "instruction": "Tap on 'applyFilterButton', and do not retry tap if no UI change is detected.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"applyFilterButton\"\n    retryTapIfNoChange: false"
+    },
+    {
+      "instruction": "Assert the 'privacy_checkbox' is visible and currently not checked.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"privacy_checkbox\"\n    checked: false"
+    },
+    {
+      "instruction": "Input a random 4-digit PIN.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- inputRandomNumber:\n    length: 4"
+    },
+    {
+      "instruction": "Scroll down until 'page_footer_copyright' is 90% visible and centered, with medium speed (40).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"page_footer_copyright\" }\n    direction: DOWN\n    visibilityPercentage: 90\n    centerElement: true\n    speed: 40"
+    },
+    {
+      "instruction": "If 'userIsAuthenticated' output variable is false, run 'login_prompt.yaml'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${!output.userIsAuthenticated}\"\n    file: \"login_prompt.yaml\""
+    },
+    {
+      "instruction": "Clear the state of app 'com.qoneqt.qoneqt.dev', then launch it.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- clearState: \"com.qoneqt.qoneqt.dev\"\n- launchApp: \"com.qoneqt.qoneqt.dev\""
+    },
+    {
+      "instruction": "Tap on the third element with text 'Selectable Option'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    text: \"Selectable Option\"\n    index: 2"
+    },
+    {
+      "instruction": "Assert the input field with ID 'username_field_signup' is currently focused after a tap.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"username_field_signup\" }\n- assertVisible:\n    id: \"username_field_signup\"\n    focused: true"
+    },
+    {
+      "instruction": "Enter 'user1@qoneqt.com' into 'usernameInput', 'securePass' into 'passwordInput', tap 'loginBtn', then verify 'welcomeHeader' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"usernameInput\" }\n- inputText: \"user1@qoneqt.com\"\n- tapOn: { id: \"passwordInput\" }\n- inputText: \"securePass\"\n- tapOn: { id: \"loginBtn\" }\n- assertVisible: { id: \"welcomeHeader\" }"
+    },
+    {
+      "instruction": "Tap on the element with ID 'product_image_main' which is located above 'product_description_text'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"product_image_main\"\n    above: { id: \"product_description_text\" }"
+    },
+    {
+      "instruction": "If 'paymentFailedError' is visible, retry running the 'process_payment_alt.yaml' flow once.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      visible: { id: \"paymentFailedError\" }\n    file: \"process_payment_alt.yaml\"\n    # For retry of this conditional flow, wrap the whole conditional runFlow in a retry block if needed"
+    },
+    {
+      "instruction": "Repeatedly tap 'next_tutorial_button' until 'tutorial_complete_message' is visible, up to 10 times.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 10\n    while:\n      notVisible: { id: \"tutorial_complete_message\" }\n    commands:\n      - tapOn: { id: \"next_tutorial_button\" }"
+    },
+    {
+      "instruction": "Using AI, check if the current screen layout is responsive and adapts well to different orientations (conceptual).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n# Conceptual AI check, actual orientation change is separate\n- assertWithAI:\n    assertion: \"The current screen layout appears responsive and likely adapts well to both portrait and landscape orientations without content overlap or truncation.\""
+    },
+    {
+      "instruction": "Run script 'user_settings_validator.js', passing 'settingsObject: output.currentUserSettings' as an environment variable.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"user_settings_validator.js\"\n    env:\n      settingsObject: \"${output.currentUserSettings}\" # Assuming stringifiable"
+    },
+    {
+      "instruction": "Set output variable 'greeting' to 'Hello, ${MAESTRO_USER_NAME}!' using an environment variable for the name.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.greeting = 'Hello, ' + MAESTRO_USER_NAME + '!'}\""
+    },
+    {
+      "instruction": "Add two media files: './shared/common_logo.png' and './video_gallery/intro.mp4'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- addMedia:\n    - \"./shared/common_logo.png\"\n    - \"./video_gallery/intro.mp4\""
+    },
+    {
+      "instruction": "Launch the application with argument 'userTier' set to 'premium' and 'autoLogin' to false.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp:\n    arguments:\n      userTier: \"premium\"\n      autoLogin: false"
+    },
+    {
+      "instruction": "Tap the 'Show More Details' button, but only wait 300ms for the screen to settle afterwards.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    text: \"Show More Details\"\n    waitToSettleTimeoutMs: 300"
+    },
+    {
+      "instruction": "Assert the 'notification_preference_switch' is selected and enabled.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"notification_preference_switch\"\n    selected: true\n    enabled: true"
+    },
+    {
+      "instruction": "Input a random person's full name into 'billing_contact_name'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"billing_contact_name\" }\n- inputRandomPersonName"
+    },
+    {
+      "instruction": "Scroll the 'long_terms_document' until 'accept_terms_button' is visible and centered, using fast scroll speed (75).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"accept_terms_button\" }\n    direction: DOWN\n    centerElement: true\n    speed: 75\n    # Assuming long_terms_document is parent"
+    },
+    {
+      "instruction": "Run 'display_error_modal.yaml' only if the 'output.networkErrorOccurred' variable is true.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.networkErrorOccurred}\"\n    file: \"display_error_modal.yaml\""
+    },
+    {
+      "instruction": "Use AI to extract the primary headline text from the current news article.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- extractTextWithAI:\n    query: \"What is the primary headline of the current news article?\"\n    outputVariable: \"articleHeadline\""
+    },
+    {
+      "instruction": "Double tap on the 'like_icon_post_42' element with a 100ms delay.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- doubleTapOn:\n    id: \"like_icon_post_42\"\n    delay: 100"
+    },
+    {
+      "instruction": "Wait until 'videoPlayerControls' are visible, with a timeout of 8 seconds.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- extendedWaitUntil:\n    visible: { id: \"videoPlayerControls\" }\n    timeout: 8000"
+    },
+    {
+      "instruction": "Long press on the 'mapPin' element with text 'User Location'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- longPressOn:\n    id: \"mapPin\"\n    text: \"User Location\""
+    },
+    {
+      "instruction": "Open the deep link 'qoneqt://order_history?filter=recent' and auto-verify it on Android devices.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- openLink:\n    link: \"qoneqt://order_history?filter=recent\"\n    autoVerify: true"
+    },
+    {
+      "instruction": "Press the 'Home' key, wait for 2 seconds, then relaunch the app.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"Home\"\n- evalScript: \"${java.lang.Thread.sleep(2000)}\"\n- launchApp"
+    },
+    {
+      "instruction": "Swipe from 10%,50% to 90%,50% over 1 second to reveal a menu.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- swipe:\n    start: \"10%,50%\"\n    end: \"90%,50%\"\n    duration: 1000"
+    },
+    {
+      "instruction": "Take a screenshot named 'UserProfile_ViewMode'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- takeScreenshot: \"UserProfile_ViewMode\""
+    },
+    {
+      "instruction": "Launch app, tap 'username', input 'testuser', tap 'password', input 'password123', tap 'loginButton', assert 'dashboardTitle' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp\n- tapOn: { id: \"username\" }\n- inputText: \"testuser\"\n- tapOn: { id: \"password\" }\n- inputText: \"password123\"\n- tapOn: { id: \"loginButton\" }\n- assertVisible: { id: \"dashboardTitle\" }"
+    },
+    {
+      "instruction": "Tap on the settings icon (ID: 'settings_gear_icon').",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"settings_gear_icon\" }"
+    },
+    {
+      "instruction": "Assert that the 'errorMessageBanner' element is visible and contains 'service unavailable'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"errorMessageBanner\"\n    text: \".*service unavailable.*\""
+    },
+    {
+      "instruction": "Enter the value from 'output.userComment' into 'comment_input_field'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"comment_input_field\" }\n- inputText: \"${output.userComment}\""
+    },
+    {
+      "instruction": "Scroll left within 'featured_categories_scroller' until 'category_books' is 70% visible and centered.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"category_books\" }\n    direction: LEFT\n    visibilityPercentage: 70\n    centerElement: true\n    # Assuming featured_categories_scroller is parent"
+    },
+    {
+      "instruction": "Run the 'perform_logout.yaml' flow only if the current environment variable 'MAESTRO_SHOULD_LOGOUT' is 'true'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${MAESTRO_SHOULD_LOGOUT === 'true'}\"\n    file: \"perform_logout.yaml\""
+    },
+    {
+      "instruction": "Retry tapping 'unstable_api_call_button' and asserting 'api_success_message' up to 1 time, with a 5s timeout for the assertion.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 1\n    commands:\n      - tapOn: { id: \"unstable_api_call_button\" }\n      - extendedWaitUntil:\n          visible: { id: \"api_success_message\" }\n          timeout: 5000"
+    },
+    {
+      "instruction": "Repeat tapping 'add_to_favorites_icon' until 'favorites_counter_badge' shows '5', but no more than 5 taps.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 5\n    while:\n      notVisible: { id: \"favorites_counter_badge\", text: \"5\" }\n    commands:\n      - tapOn: { id: \"add_to_favorites_icon\" }"
+    },
+    {
+      "instruction": "Check for any UI defects on the 'paymentConfirmationScreen' using AI, and make this check optional.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertNoDefectsWithAI:\n    optional: true\n    # screenshotName: paymentConfirmationScreen_AIDefects (optional param for naming)"
+    },
+    {
+      "instruction": "Run script 'environment_setup.js', passing 'testEnvName: MAESTRO_TEST_ENVIRONMENT'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"environment_setup.js\"\n    env:\n      testEnvName: \"${MAESTRO_TEST_ENVIRONMENT}\""
+    },
+    {
+      "instruction": "Evaluate a script: if 'output.inputValue' is a number, convert it to string, otherwise set to 'N/A'. Store in 'output.displayValue'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.displayValue = (typeof output.inputValue === 'number') ? String(output.inputValue) : 'N/A'}\""
+    },
+    {
+      "instruction": "Tap on the element with ID 'navigation_bar_item_profile' that is a child of 'main_navigation_bar'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"navigation_bar_item_profile\"\n    childOf: { id: \"main_navigation_bar\" }"
+    },
+    {
+      "instruction": "Assert the 'terms_of_service_checkbox' is visible, enabled and not selected.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"terms_of_service_checkbox\"\n    enabled: true\n    selected: false"
+    },
+    {
+      "instruction": "Input a random 6-digit verification code into 'mfa_code_input'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"mfa_code_input\" }\n- inputRandomNumber:\n    length: 6"
+    },
+    {
+      "instruction": "Launch app. Tap 'Profile'. Tap 'Edit Profile'. Change name to 'Updated Name'. Tap 'Save'. Assert 'Profile updated successfully'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp\n- tapOn: \"Profile\"\n- tapOn: \"Edit Profile\"\n- tapOn: { id: \"name_input_field\" }\n- eraseText\n- inputText: \"Updated Name\"\n- tapOn: \"Save\"\n- assertVisible: \"Profile updated successfully\""
+    },
+    {
+      "instruction": "Tap on the 'close_welcome_banner_button', make it optional, and label it 'Dismiss Welcome Banner'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"close_welcome_banner_button\"\n    optional: true\n    label: \"Dismiss Welcome Banner\""
+    },
+    {
+      "instruction": "Verify the 'main_form_container' contains descendant elements with IDs 'nameField', 'emailField', and 'submitButton'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"main_form_container\"\n    containsDescendants:\n      - { id: \"nameField\" }\n      - { id: \"emailField\" }\n      - { id: \"submitButton\" }"
+    },
+    {
+      "instruction": "Tap on 'filter_category_A', then 'filter_category_B', then assert 'results_count_display' shows more than 0 items.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"filter_category_A\" }\n- tapOn: { id: \"filter_category_B\" }\n- assertVisible:\n    id: \"results_count_display\"\n    text: \"[^0].*\" # Regex for not starting with 0, or more robustly checking for digits > 0"
+    },
+    {
+      "instruction": "Assert 'icon_notification_badge' has width of 16 and height of 16, with a tolerance of 2px.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"icon_notification_badge\"\n    width: 16\n    height: 16\n    tolerance: 2"
+    },
+    {
+      "instruction": "Add multiple media: './assets/logo.png', './assets/user_video.mp4', './assets/document.pdf'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- addMedia:\n    - \"./assets/logo.png\"\n    - \"./assets/user_video.mp4\"\n    - \"./assets/document.pdf\""
+    },
+    {
+      "instruction": "Press TV Input HDMI 1 key, wait 2s, then press TV Menu key.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"TV Input HDMI 1\"\n- evalScript: \"${java.lang.Thread.sleep(2000)}\"\n- pressKey: \"Remote Menu\""
+    },
+    {
+      "instruction": "Take a screenshot, saving it as 'Registration_Step3_Complete'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- takeScreenshot: \"Registration_Step3_Complete\""
+    },
+    {
+      "instruction": "Tap on the button 'Confirm & Pay' if it is visible, enabled, and the 'totalAmountDisplay' is not '$0.00'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      visible:\n        id: \"confirmAndPayButton\" # Assuming an ID\n        text: \"Confirm & Pay\"\n        enabled: true\n      notVisible: { id: \"totalAmountDisplay\", text: \"$0.00\" } # Need to ensure this means > 0\n    commands:\n      - tapOn: { id: \"confirmAndPayButton\" }"
+    },
+    {
+      "instruction": "Assert the 'shareLocationSwitch' is visible, enabled, and currently ON (checked).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"shareLocationSwitch\"\n    enabled: true\n    checked: true"
+    },
+    {
+      "instruction": "Tap 'viewFullTermsLink', optional action, labeled 'Read Full Terms and Conditions'. Don't retry if UI doesn't change.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"viewFullTermsLink\"\n    optional: true\n    label: \"Read Full Terms and Conditions\"\n    retryTapIfNoChange: false"
+    },
+    {
+      "instruction": "Clear app state, then launch with 'force_tutorial: true' and 'user_language: de' arguments.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- clearState\n- launchApp:\n    arguments:\n      force_tutorial: true\n      user_language: \"de\""
+    },
+    {
+      "instruction": "Verify 'SERVER_MAINTENANCE_NOTICE_001' message is displayed on the screen.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible: \"SERVER_MAINTENANCE_NOTICE_001\""
+    },
+    {
+      "instruction": "Launch application. Tap on the 'ExploreFeaturesButton'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp\n- tapOn: { id: \"ExploreFeaturesButton\" }"
+    },
+    {
+      "instruction": "Input 'Final Project Report - Q4 Analysis and Findings' into 'documentName_input'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"documentName_input\" }\n- inputText: \"Final Project Report - Q4 Analysis and Findings\""
+    },
+    {
+      "instruction": "Scroll 'user_reviews_list' until 'review_by_user_jane_doe' is visible, tap it, then assert 'review_detail_view_jane_doe' is shown.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"review_by_user_jane_doe\" }\n    # Assuming user_reviews_list is parent\n- tapOn: { id: \"review_by_user_jane_doe\" }\n- assertVisible: { id: \"review_detail_view_jane_doe\" }"
+    },
+    {
+      "instruction": "Run 'apply_discount_code.yaml' if 'output.isEligibleForDiscount' is true, passing 'discountCode: output.retrievedCode'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.isEligibleForDiscount}\"\n    file: \"apply_discount_code.yaml\"\n    env:\n      discountCode: \"${output.retrievedCode}\""
+    },
+    {
+      "instruction": "Retry: tap 'ConnectToWifiButton', wait for 'WifiConnectedIcon' (max 15s). Max retries: 2.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 2\n    commands:\n      - tapOn: { id: \"ConnectToWifiButton\" }\n      - extendedWaitUntil:\n          visible: { id: \"WifiConnectedIcon\" }\n          timeout: 15000"
+    },
+    {
+      "instruction": "Repeat tapping 'NextChapterLink' while 'ChapterTitleDisplay' is not 'Epilogue', max 20 taps.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 20\n    while:\n      notVisible: { id: \"ChapterTitleDisplay\", text: \"Epilogue\" }\n    commands:\n      - tapOn: { id: \"NextChapterLink\" }"
+    },
+    {
+      "instruction": "Use AI to ensure all placeholder texts in input fields are descriptive and user-friendly.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertWithAI:\n    assertion: \"All visible input fields on the current screen have descriptive and user-friendly placeholder texts that guide the user on the expected input.\""
+    },
+    {
+      "instruction": "Run JavaScript 'build_report_url.js'. It needs 'reportId: output.generatedReportId' and 'authToken: MAESTRO_API_TOKEN'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"build_report_url.js\"\n    env:\n      reportId: \"${output.generatedReportId}\"\n      authToken: \"${MAESTRO_API_TOKEN}\""
+    },
+    {
+      "instruction": "Take 'output.valueA' and 'output.valueB', calculate their product, store in 'output.productResult'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.productResult = (parseFloat(output.valueA) || 0) * (parseFloat(output.valueB) || 0)}\""
+    },
+    {
+      "instruction": "Tap the 'finalizeAndSendButton', which is the first enabled button below 'emailPreviewContent'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    enabled: true\n    below: { id: \"emailPreviewContent\" }\n    index: 0"
+    },
+    {
+      "instruction": "Assert 'backupFailedDialog' is visible with text 'Cloud backup failed. Please check your storage or network.'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"backupFailedDialog\"\n    text: \"Cloud backup failed. Please check your storage or network.\""
+    },
+    {
+      "instruction": "Input a random valid IPv4 address into 'serverIpAddressInput'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"serverIpAddressInput\" }\n- evalScript: \"${output.randomIPv4 = Math.floor(Math.random()*255)+1 + '.' + Math.floor(Math.random()*255) + '.' + Math.floor(Math.random()*255) + '.' + Math.floor(Math.random()*255)+1}\"\n- inputText: \"${output.randomIPv4}\""
+    },
+    {
+      "instruction": "Comprehensive flow: Login. Navigate to Messages. Select first contact. Send 'Hello from Maestro!'. Verify sent message visible. Logout.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow: \"standard_login.yaml\"\n- tapOn: { id: \"messagesTabIcon\" }\n- tapOn: { id: \"contactListItem\", index: 0 }\n- tapOn: { id: \"messageInputField\" }\n- inputText: \"Hello from Maestro!\"\n- tapOn: { id: \"sendMessageButton\" }\n- assertVisible: { text: \"Hello from Maestro!\", id: \"lastSentMessageBubble\" }\n- runFlow: \"standard_logout.yaml\""
+    },
+    {
+      "instruction": "Tap 'openExternalMapLink', optional, labeled 'View on External Map App'. No retry if UI unchanged.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"openExternalMapLink\"\n    optional: true\n    label: \"View on External Map App\"\n    retryTapIfNoChange: false"
+    },
+    {
+      "instruction": "Verify 'userDashboardHeader' contains descendants: 'userAvatarSmall', 'userNameDisplayHeader', and 'notificationBellIcon'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"userDashboardHeader\"\n    containsDescendants:\n      - { id: \"userAvatarSmall\" }\n      - { id: \"userNameDisplayHeader\" }\n      - { id: \"notificationBellIcon\" }"
+    },
+    {
+      "instruction": "Tap 'buttonA', then 'buttonB_inside_A_content', then 'buttonC_inside_B_content'. Assert 'finalMessage_ABC' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"buttonA\" }\n- tapOn: { id: \"buttonB_inside_A_content\" }\n- tapOn: { id: \"buttonC_inside_B_content\" }\n- assertVisible: { id: \"finalMessage_ABC\" }"
+    },
+    {
+      "instruction": "Assert 'productHeroImage' has exact width 320 and exact height 180.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"productHeroImage\"\n    width: 320\n    height: 180\n    tolerance: 0"
+    },
+    {
+      "instruction": "Define an environment variable 'appIdSuffix' as '.debug' for this flow only, then launch 'com.qoneqt.qoneqt${appIdSuffix}'.",
+      "output": "appId: com.qoneqt.qoneqt\nenv:\n  appIdSuffix: \".debug\"\n---\n- launchApp: \"com.qoneqt.qoneqt${appIdSuffix}\""
+    },
+    {
+      "instruction": "On flow start, tap 'dismissInitialAdButton' if it's visible. On flow complete, run 'cleanup_test_user.yaml'.",
+      "output": "appId: com.qoneqt.qoneqt\nonFlowStart:\n  - tapOn: { id: \"dismissInitialAdButton\", optional: true }\nonFlowComplete:\n  - runFlow: \"cleanup_test_user.yaml\"\n---\n- launchApp # Main flow starts after onFlowStart\n- assertVisible: \"MainApplicationScreen\""
+    },
+    {
+      "instruction": "Set the flow name to 'Multi-Step Form Submission & Validation' and tag it with 'forms', 'e2e', 'critical'.",
+      "output": "appId: com.qoneqt.qoneqt\nname: \"Multi-Step Form Submission & Validation\"\ntags:\n  - \"forms\"\n  - \"e2e\"\n  - \"critical\"\n---\n- launchApp\n- tapOn: { id: \"startFormButton\" }"
+    },
+    {
+      "instruction": "Use GraalJS engine. Copy text from 'dynamicContentArea', then log its length.",
+      "output": "appId: com.qoneqt.qoneqt\njsEngine: graaljs\n---\n- copyTextFrom: { id: \"dynamicContentArea\" }\n- evalScript: \"${console.log('Length of copied text: ' + (maestro.copiedText ? maestro.copiedText.length : 0))}\""
+    },
+    {
+      "instruction": "Tap on the element with text 'Login' which is a child of the element with ID 'authFormContainer'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    text: \"Login\"\n    childOf: { id: \"authFormContainer\" }"
+    },
+    {
+      "instruction": "Assert that the 'notification_badge_count' element, when visible, displays a number greater than 0 (e.g., text matches regex '[1-9]\\d*').",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"notification_badge_count\"\n    text: \"[1-9]\\\\d*\"\n    optional: true # Badge might not always be present"
+    },
+    {
+      "instruction": "Enter the password from the environment variable 'USER_PASSWORD_SECRET' into the 'password_field_secure'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"password_field_secure\" }\n- inputText: \"${MAESTRO_USER_PASSWORD_SECRET}\""
+    },
+    {
+      "instruction": "Scroll the 'infinite_scroll_list' downwards until 'list_item_id_500' is visible, ensuring it's centered.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"list_item_id_500\" }\n    direction: DOWN\n    centerElement: true\n    # Assuming infinite_scroll_list is parent"
+    },
+    {
+      "instruction": "Run 'update_user_status.yaml' with 'newStatus: inactive' only if 'output.userIsIdle' is true and platform is not 'Web'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.userIsIdle && maestro.platform !== 'Web'}\"\n    file: \"update_user_status.yaml\"\n    env:\n      newStatus: \"inactive\""
+    },
+    {
+      "instruction": "Retry tapping 'unreliable_save_button' 3 times. If it fails, log 'Save failed' and take a screenshot 'save_failure_state'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 3\n    commands:\n      - tapOn: { id: \"unreliable_save_button\", optional: true }\n      - assertVisible: { id: \"saveSuccessConfirmation\", optional: true } # Check for success\n- runFlow:\n    when:\n      notVisible: { id: \"saveSuccessConfirmation\" } # If success not visible after retries\n    commands:\n      - evalScript: \"${console.log('Save failed after retries.')}\"\n      - takeScreenshot: \"save_failure_state\""
+    },
+    {
+      "instruction": "Repeat tapping 'next_image_in_gallery_button' 9 times, or until 'gallery_end_indicator' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 9\n    while:\n      notVisible: { id: \"gallery_end_indicator\" }\n    commands:\n      - tapOn: { id: \"next_image_in_gallery_button\" }"
+    },
+    {
+      "instruction": "Use AI to assert that the typography (font choices, hierarchy, spacing) is consistent and professional across the current settings screen.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: \"Settings\" # Navigate if needed\n- assertWithAI:\n    assertion: \"The typography on the current settings screen, including font choices, heading hierarchy, and text spacing, is consistent, professional, and contributes to good readability.\""
+    },
+    {
+      "instruction": "Run 'process_uploaded_file.js' script, passing 'filePath: output.uploadedFilePath' and 'fileType: output.detectedMimeType'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"process_uploaded_file.js\"\n    env:\n      filePath: \"${output.uploadedFilePath}\"\n      fileType: \"${output.detectedMimeType}\""
+    },
+    {
+      "instruction": "Evaluate script: check if 'output.apiResponse.status' is 200 and 'output.apiResponse.data.user.isActive' is true. Store result in 'output.isUserActiveAndHealthy'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.isUserActiveAndHealthy = (output.apiResponse && output.apiResponse.status === 200 && output.apiResponse.data && output.apiResponse.data.user && output.apiResponse.data.user.isActive === true)}\""
+    },
+    {
+      "instruction": "Launch the app 'com.qoneqt.enterprise.edition', clear state, set camera permission to allow.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp:\n    appId: \"com.qoneqt.enterprise.edition\"\n    clearState: true\n    permissions:\n      camera: allow"
+    },
+    {
+      "instruction": "Assert the 'chat_input_textarea' is focused, enabled, and its current text value is 'Type your message...'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"chat_input_textarea\"\n    focused: true\n    enabled: true\n    text: \"Type your message...\""
+    },
+    {
+      "instruction": "Input a random 10-digit US phone number (format (XXX) XXX-XXXX - conceptual) into 'contact_phone_input'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"contact_phone_input\" }\n- evalScript: \"${ const n = () => Math.floor(Math.random()*900)+100; output.randomPhone = '('+n()+') '+n()+'-'+(Math.floor(Math.random()*9000)+1000); }\"\n- inputText: \"${output.randomPhone}\""
+    },
+    {
+      "instruction": "Full settings change: Login. Navigate to Settings -> Appearance. Select 'Dark Theme'. Tap 'Apply'. Go back. Re-enter Settings -> Appearance. Verify 'Dark Theme' is still selected.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow: \"login_flow.yaml\"\n- tapOn: \"Settings\"\n- tapOn: \"Appearance\"\n- tapOn: { id: \"darkThemeRadioButton\" }\n- tapOn: \"Apply\"\n- back # Back from Appearance\n- back # Back from Settings\n- tapOn: \"Settings\"\n- tapOn: \"Appearance\"\n- assertVisible:\n    id: \"darkThemeRadioButton\"\n    selected: true"
+    },
+    {
+      "instruction": "Wait for 'system_maintenance_banner' to disappear, with a timeout of 5 minutes (300000 ms).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- extendedWaitUntil:\n    notVisible: { id: \"system_maintenance_banner\" }\n    timeout: 300000"
+    },
+    {
+      "instruction": "Press the Android TV Remote Menu key, then select 'Settings' (ID: 'tvSettingsOption').",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"Remote Menu\"\n- tapOn: { id: \"tvSettingsOption\" }"
+    },
+    {
+      "instruction": "Swipe the 'product_recommendation_carousel' from right to left very slowly (duration 3000ms).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- swipe:\n    from: { id: \"product_recommendation_carousel\" }\n    direction: LEFT\n    duration: 3000"
+    },
+    {
+      "instruction": "Start recording screen as 'data_export_process', run 'export_user_data.yaml', assert 'export_successful_toast' visible, then stop recording.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- startRecording: \"data_export_process\"\n- runFlow: \"export_user_data.yaml\"\n- assertVisible: { id: \"export_successful_toast\" }\n- stopRecording"
+    },
+    {
+      "instruction": "Tap 'DeleteAccountButton'. If 'ConfirmDeletePopup' is visible with text 'Are you sure you want to permanently delete?', tap 'YesDeleteMyAccountButton'. Else, log error.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"DeleteAccountButton\" }\n- runFlow:\n    when:\n      visible: { id: \"ConfirmDeletePopup\", text: \".*Are you sure you want to permanently delete?.*\" }\n    commands:\n      - tapOn: { id: \"YesDeleteMyAccountButton\" }\n- runFlow:\n    when:\n      notVisible: { id: \"ConfirmDeletePopup\" }\n    commands:\n      - evalScript: \"${console.error('Delete confirmation popup not found!')}\""
+    },
+    {
+      "instruction": "Assert the 'userPointsBalance' text is exactly '${output.expectedPoints} points' only if 'output.userIsLoggedIn' is true and 'output.pointsFeatureEnabled' is true.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.userIsLoggedIn && output.pointsFeatureEnabled}\"\n    commands:\n      - assertVisible: \"${output.expectedPoints} points\""
+    },
+    {
+      "instruction": "Long press on the 'reorder_list_item_handle' and then swipe it below 'another_list_item_target'. (Conceptual, swipe to element target is tricky)",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- longPressOn: { id: \"reorder_list_item_handle\" }\n# Swipe to another element directly is not a standard Maestro feature.\n# Usually, you'd swipe by coordinates or direction.\n# Simulating a swipe downwards conceptually.\n- swipe:\n    start: { id: \"reorder_list_item_handle\" }\n    direction: DOWN\n    # This requires knowing where another_list_item_target is relative to the start.\n    # A more robust approach would involve getting coordinates if possible via JS."
+    },
+    {
+        "instruction": "Add three different products to cart, each with quantity 2. Product IDs are 'PROD_A', 'PROD_B', 'PROD_C'.",
+        "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    file: \"add_to_cart_with_quantity.yaml\"\n    env:\n      productId: \"PROD_A\"\n      quantity: 2\n- runFlow:\n    file: \"add_to_cart_with_quantity.yaml\"\n    env:\n      productId: \"PROD_B\"\n      quantity: 2\n- runFlow:\n    file: \"add_to_cart_with_quantity.yaml\"\n    env:\n      productId: \"PROD_C\"\n      quantity: 2"
+    },
+    {
+      "instruction": "If 'systemErrorDialog_critical' is visible, copy text from 'errorDialogDetailsText', take screenshot 'CriticalErrorScreenshot', then stop the app.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      visible: { id: \"systemErrorDialog_critical\" }\n    commands:\n      - copyTextFrom: { id: \"errorDialogDetailsText\" }\n      - takeScreenshot: \"CriticalErrorScreenshot\"\n      - stopApp"
+    },
+    {
+      "instruction": "Assert the 'main_advertisement_banner' is visible and its dimensions are roughly 320x50 pixels (tolerance 10px).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"main_advertisement_banner\"\n    width: 320\n    height: 50\n    tolerance: 10"
+    },
+    {
+      "instruction": "Retry running 'initialize_third_party_sdk.js' script 1 time. After, assert 'output.sdkInitializedSuccessfully' is true.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 1\n    commands:\n      - runScript: \"initialize_third_party_sdk.js\"\n- assertVisible: { text: \"${output.sdkInitializedSuccessfully ? 'SDKInitTrue' : 'SDKInitFalse_ERROR'}\" } # Indirect assert"
+    },
+    {
+      "instruction": "Repeat 20 times or until 'all_data_pages_loaded_indicator' is visible: tap 'fetch_next_data_page_button', wait 1s for network and UI update.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 20\n    while:\n      notVisible: { id: \"all_data_pages_loaded_indicator\" }\n    commands:\n      - tapOn: { id: \"fetch_next_data_page_button\", optional: true }\n      - evalScript: \"${java.lang.Thread.sleep(1000)}\""
+    },
+    {
+      "instruction": "Use AI to check if the password strength indicator for 'newPasswordStrengthIndicator' provides clear visual feedback (e.g., color changes, text like Weak/Medium/Strong).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n# First, input some passwords to trigger states\n- tapOn: { id: \"newPasswordField\" }\n- inputText: \"weak\"\n- assertWithAI:\n    assertion: \"The password strength indicator (element 'newPasswordStrengthIndicator') provides clear visual feedback, such as color changes or text labels (Weak, Medium, Strong), based on password complexity.\""
+    },
+    {
+      "instruction": "Run script 'build_analytics_payload.js', passing 'eventData: output.userInteractionEventsArray' (an array of objects) and 'platform: maestro.platform'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"build_analytics_payload.js\"\n    env:\n      eventData: \"${JSON.stringify(output.userInteractionEventsArray || [])}\" # Stringify array for env\n      platform: \"${maestro.platform}\""
+    },
+    {
+      "instruction": "Evaluate script: if 'output.temperatureCelsius' is defined, convert to Fahrenheit `(C * 9/5) + 32` and store in 'output.temperatureFahrenheit'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.temperatureFahrenheit = (typeof output.temperatureCelsius === 'number') ? ((output.temperatureCelsius * 9/5) + 32).toFixed(1) : 'N/A'}\""
+    },
+    {
+      "instruction": "Tap on the 'deleteAccountPermanentlyButton' which must be a child of 'confirmAccountDeletionModal' and have text 'Yes, Delete My Account'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"deleteAccountPermanentlyButton\"\n    text: \"Yes, Delete My Account\"\n    childOf: { id: \"confirmAccountDeletionModal\" }"
+    },
+    {
+      "instruction": "Assert the 'api_error_message_container' is visible and its text contains 'code: 503' and 'service: payment_gateway'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"api_error_message_container\"\n    text: \".*code: 503.*service: payment_gateway.*\""
+    },
+    {
+      "instruction": "Input a random complex sentence (conceptual) of about 15 words into 'userFeedbackLongFormInput'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"userFeedbackLongFormInput\" }\n- inputRandomText: { length: 100 } # Approximate with random text"
+    },
+    {
+      "instruction": "Complete a multi-page survey: Page1Next, Page2Next, Page3Next, Page4Submit. Verify 'SurveyCompleteThankYouMsg'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"Page1NextButton\" }\n- tapOn: { id: \"Page2NextButton\" }\n- tapOn: { id: \"Page3NextButton\" }\n- tapOn: { id: \"Page4SubmitButton\" }\n- assertVisible: { id: \"SurveyCompleteThankYouMsg\" }"
+    },
+    {
+      "instruction": "Tap 'showHiddenAdvancedOptionsToggle'. This is optional, labelled 'Reveal Advanced Settings'. No retry if UI unchanged.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"showHiddenAdvancedOptionsToggle\"\n    optional: true\n    label: \"Reveal Advanced Settings\"\n    retryTapIfNoChange: false"
+    },
+    {
+      "instruction": "Verify 'adminDashboardSidePanel' contains descendants 'ManageUsersLink', 'SystemLogsLink', and 'ServerStatusIndicator'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"adminDashboardSidePanel\"\n    containsDescendants:\n      - { id: \"ManageUsersLink\" }\n      - { id: \"SystemLogsLink\" }\n      - { id: \"ServerStatusIndicator\" }"
+    },
+    {
+      "instruction": "Tap 'tab_main_feed', then 'tab_discover_content', then 'tab_user_notifications'. Assert 'notifications_list_container' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"tab_main_feed\" }\n- tapOn: { id: \"tab_discover_content\" }\n- tapOn: { id: \"tab_user_notifications\" }\n- assertVisible: { id: \"notifications_list_container\" }"
+    },
+    {
+      "instruction": "Assert 'appStoreRatingPromptStar5' has exact width 30 and exact height 30.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"appStoreRatingPromptStar5\"\n    width: 30\n    height: 30\n    tolerance: 0"
+    },
+    {
+      "instruction": "Add three files to media: './screenshots/error.png', './recordings/bug_repro.mp4', './logs/debug.txt'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- addMedia:\n    - \"./screenshots/error.png\"\n    - \"./recordings/bug_repro.mp4\"\n    - \"./logs/debug.txt\""
+    },
+    {
+      "instruction": "On Android TV, press Remote DPad Left, then DPad Up, then DPad Right, then DPad Down, then DPad Center.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"Remote Dpad Left\"\n- pressKey: \"Remote Dpad Up\"\n- pressKey: \"Remote Dpad Right\"\n- pressKey: \"Remote Dpad Down\"\n- pressKey: \"Remote Dpad Center\""
+    },
+    {
+      "instruction": "Take a screenshot of the 'FinalOrderReviewScreen_BeforeConfirmation'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- takeScreenshot: \"FinalOrderReviewScreen_BeforeConfirmation\""
+    },
+    {
+      "instruction": "Tap on the 'updateFirmwareButton' only if it is visible, enabled, and 'firmwareUpdateAvailableIndicator' is also visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      visible:\n        - id: \"updateFirmwareButton\"\n          enabled: true\n        - id: \"firmwareUpdateAvailableIndicator\"\n    commands:\n      - tapOn: { id: \"updateFirmwareButton\" }"
+    },
+    {
+      "instruction": "Assert the 'enablePushNotificationsToggle' is visible, enabled, and currently ON (checked).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"enablePushNotificationsToggle\"\n    enabled: true\n    checked: true"
+    },
+    {
+      "instruction": "Tap 'exportAccountDataLink', an optional action, labeled 'Download Account Data Archive'. No UI change retry.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"exportAccountDataLink\"\n    optional: true\n    label: \"Download Account Data Archive\"\n    retryTapIfNoChange: false"
+    },
+    {
+      "instruction": "Clear app state, then launch with 'initial_tab: messages' and 'notification_id: msg_7890' arguments.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- clearState\n- launchApp:\n    arguments:\n      initial_tab: \"messages\"\n      notification_id: \"msg_7890\""
+    },
+    {
+      "instruction": "Verify 'CRITICAL_DATA_MISMATCH_ERROR_ID_E007' message is displayed.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible: \"CRITICAL_DATA_MISMATCH_ERROR_ID_E007\""
+    },
+    {
+      "instruction": "Launch application. Tap on the 'BeginSetupWizardButton'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp\n- tapOn: { id: \"BeginSetupWizardButton\" }"
+    },
+    {
+      "instruction": "Input 'Advanced Analytics Report for Q1 2025 - Executive Summary' into 'report_description_textarea'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"report_description_textarea\" }\n- inputText: \"Advanced Analytics Report for Q1 2025 - Executive Summary\""
+    },
+    {
+      "instruction": "Scroll 'system_alerts_feed' until 'alert_high_priority_server_outage' is visible, tap it, then assert 'alert_details_view_server_outage' is shown.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"alert_high_priority_server_outage\" }\n    # Assuming system_alerts_feed is parent\n- tapOn: { id: \"alert_high_priority_server_outage\" }\n- assertVisible: { id: \"alert_details_view_server_outage\" }"
+    },
+    {
+      "instruction": "Run 'apply_user_segment_rules.yaml' if 'output.userSegmentNeedsUpdate' is true, passing 'segmentId: output.newSegmentId'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.userSegmentNeedsUpdate}\"\n    file: \"apply_user_segment_rules.yaml\"\n    env:\n      segmentId: \"${output.newSegmentId}\""
+    },
+    {
+      "instruction": "Retry: tap 'BluetoothPairButton', wait for 'BluetoothPairingSuccessMessage' (max 30s). Max retries: 2.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 2\n    commands:\n      - tapOn: { id: \"BluetoothPairButton\" }\n      - extendedWaitUntil:\n          visible: { id: \"BluetoothPairingSuccessMessage\" }\n          timeout: 30000"
+    },
+    {
+      "instruction": "Repeat tapping 'NextLessonButton' while 'LessonCompletionPercentage' is not '100%', max 12 taps.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 12\n    while:\n      notVisible: { id: \"LessonCompletionPercentage\", text: \"100%\" }\n    commands:\n      - tapOn: { id: \"NextLessonButton\" }"
+    },
+    {
+      "instruction": "Use AI to ensure that form submission buttons are disabled until all required fields are filled.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n# This requires multiple states. First, check when empty.\n- assertVisible: { id: \"submitFormButton\", enabled: false } # Assuming it's initially disabled\n# Then, fill required fields\n- tapOn: { id: \"requiredField1\" }\n- inputText: \"SomeData\"\n- tapOn: { id: \"requiredField2\" }\n- inputText: \"MoreData\"\n# Then, use AI or direct assertion\n- assertWithAI:\n    assertion: \"The 'submitFormButton' is now enabled after all required fields have been filled.\""
+    },
+    {
+      "instruction": "Run JavaScript 'complex_object_builder.js'. It uses 'inputObject: output.baseData' and 'config: output.builderConfig'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"complex_object_builder.js\"\n    env:\n      inputObject: \"${JSON.stringify(output.baseData || {})}\"\n      config: \"${JSON.stringify(output.builderConfig || {})}\""
+    },
+    {
+      "instruction": "Take 'output.arrayValues' (e.g., [1,2,3,4,5]), calculate sum, store in 'output.sumOfArray'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.sumOfArray = (output.arrayValues || []).reduce((acc, val) => acc + val, 0)}\""
+    },
+    {
+      "instruction": "Tap the 'confirmAndSubmitApplicationButton', which is the only enabled button below 'applicationPreviewSection'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    enabled: true\n    below: { id: \"applicationPreviewSection\" }\n    index: 0 # If there could be multiple, specify index"
+    },
+    {
+      "instruction": "Assert 'dataExportFailedNotice' is visible with text 'Data export failed due to insufficient permissions. Please check your settings.'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"dataExportFailedNotice\"\n    text: \"Data export failed due to insufficient permissions. Please check your settings.\""
+    },
+    {
+      "instruction": "Input a random complex identifier (e.g. UUID) into 'transactionIdInput'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"transactionIdInput\" }\n- evalScript: \"${output.randomUuid = crypto.randomUUID ? crypto.randomUUID() : 'fallback-uuid-' + Math.random().toString(36).substring(2,15)}\" # crypto might not be available in Rhino\n- inputText: \"${output.randomUuid}\""
+    },
+    {
+      "instruction": "Define 'globalApiKey' in flow env. Then run 'moduleA/init.yaml' and 'moduleB/init.yaml', both using this key.",
+      "output": "appId: com.qoneqt.qoneqt\nenv:\n  globalApiKey: \"KEY_FOR_ALL_MODULES\"\n---\n- runFlow:\n    file: \"moduleA/init.yaml\"\n    env: { apiKey: \"${globalApiKey}\" }\n- runFlow:\n    file: \"moduleB/init.yaml\"\n    env: { apiKey: \"${globalApiKey}\" }"
+    },
+    {
+      "instruction": "On flow start, execute 'load_feature_flags.js'. On completion, if 'output.testFailed' is true, run 'report_failure_to_slack.js'.",
+      "output": "appId: com.qoneqt.qoneqt\nonFlowStart:\n  - runScript: \"load_feature_flags.js\"\nonFlowComplete:\n  - runScript:\n      when:\n        true: \"${output.testFailed}\"\n      file: \"report_failure_to_slack.js\"\n---\n- launchApp\n- assertVisible: \"MainInterface\""
+    },
+    {
+      "instruction": "Set flow name to 'Critical E2E - Purchase with International Shipping' and tag 'e2e', 'shipping', 'critical_path'.",
+      "output": "appId: com.qoneqt.qoneqt\nname: \"Critical E2E - Purchase with International Shipping\"\ntags:\n  - \"e2e\"\n  - \"shipping\"\n  - \"critical_path\"\n---\n- launchApp\n- tapOn: { id: \"startPurchaseButton\" }"
+    },
+    {
+      "instruction": "Use GraalJS. Copy text from 'userFeedbackInput'. If text length > 500, log warning. Then submit feedback.",
+      "output": "appId: com.qoneqt.qoneqt\njsEngine: graaljs\n---\n- copyTextFrom: { id: \"userFeedbackInput\" }\n- evalScript: \"${ if (maestro.copiedText && maestro.copiedText.length > 500) { console.warn('Feedback text exceeds 500 characters.'); } }\"\n- tapOn: { id: \"submitFeedbackButton\" }"
+    },
+    {
+      "instruction": "Tap on the element with text 'Accept & Continue' which is a child of 'consentDialogPopup'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    text: \"Accept & Continue\"\n    childOf: { id: \"consentDialogPopup\" }"
+    },
+    {
+      "instruction": "Assert that 'liveChatSupportButton', when visible, has text 'Chat Now' and is enabled.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"liveChatSupportButton\"\n    text: \"Chat Now\"\n    enabled: true\n    optional: true # Button might not always be visible"
+    },
+    {
+      "instruction": "Enter the API secret key from environment 'MAESTRO_API_SECRET_KEY' into 'apiSecretKeyField_admin'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"apiSecretKeyField_admin\" }\n- inputText: \"${MAESTRO_API_SECRET_KEY}\""
+    },
+    {
+      "instruction": "Scroll the 'full_document_viewer' downwards until 'page_75_marker' is visible, ensuring it's centered and speed is very slow (10).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- scrollUntilVisible:\n    element: { id: \"page_75_marker\" }\n    direction: DOWN\n    centerElement: true\n    speed: 10\n    # Assuming full_document_viewer is parent"
+    },
+    {
+      "instruction": "Run 'send_analytics_event.yaml' with 'eventName: screen_view' and 'screenName: Settings/Profile/Edit' only if 'output.analyticsEnabled' is true and platform is iOS.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.analyticsEnabled}\"\n      platform: \"iOS\"\n    file: \"send_analytics_event.yaml\"\n    env:\n      eventName: \"screen_view\"\n      screenName: \"Settings/Profile/Edit\""
+    },
+    {
+      "instruction": "Retry tapping 'flaky_modal_confirm_button' 5 times. If it then fails, run flow 'handle_modal_failure.yaml'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 5\n    commands:\n      - tapOn: { id: \"flaky_modal_confirm_button\", optional: true }\n      - assertVisible: { id: \"modalConfirmationSuccess\", optional: true } # To break retry on success\n- runFlow:\n    when:\n      notVisible: { id: \"modalConfirmationSuccess\" }\n    file: \"handle_modal_failure.yaml\""
+    },
+    {
+      "instruction": "Repeat tapping 'load_more_search_results_button' 12 times, or until 'no_more_search_results_message' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 12\n    while:\n      notVisible: { id: \"no_more_search_results_message\" }\n    commands:\n      - tapOn: { id: \"load_more_search_results_button\" }"
+    },
+    {
+      "instruction": "Use AI to assert that the color contrast between placeholder text and input field background is sufficient for accessibility in 'usernameField' and 'passwordField'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertWithAI:\n    assertion: \"The placeholder text in 'usernameField' and 'passwordField' has sufficient color contrast against the input field background to meet accessibility guidelines.\""
+    },
+    {
+      "instruction": "Run script 'complex_data_aggregation.js', passing 'dataSetA: output.userDataArray' and 'dataSetB: output.transactionDataArray'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"complex_data_aggregation.js\"\n    env:\n      dataSetA: \"${JSON.stringify(output.userDataArray || [])}\"\n      dataSetB: \"${JSON.stringify(output.transactionDataArray || [])}\""
+    },
+    {
+      "instruction": "Evaluate script: if 'output.isError' is true, set 'output.finalStatus' to 'Failed', else if 'output.isWarning' is true, set to 'Warning', else 'Success'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${ output.finalStatus = output.isError ? 'Failed' : (output.isWarning ? 'Warning' : 'Success'); }\""
+    },
+    {
+      "instruction": "Launch the app 'com.qoneqt.testing.sandbox', clear its state, and grant all available device permissions.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- launchApp:\n    appId: \"com.qoneqt.testing.sandbox\"\n    clearState: true\n    permissions: { all: allow }"
+    },
+    {
+      "instruction": "Assert the 'final_confirmation_checkbox_agree' is focused, enabled, and currently unchecked.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"final_confirmation_checkbox_agree\"\n    focused: true\n    enabled: true\n    checked: false"
+    },
+    {
+      "instruction": "Input a random 20-digit universally unique identifier (UUID-like format - conceptual) into 'correlationId_debug_field'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"correlationId_debug_field\" }\n- evalScript: \"${output.randomUUIDLike = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2,7) }\"\n- inputText: \"${output.randomUUIDLike}\""
+    },
+    {
+      "instruction": "Extensive Settings Test: Login. Go to Settings. Change Notification Prefs (3 toggles). Change Theme. Change Language. Save. Verify all changes persisted after re-entering settings.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow: \"login_standard.yaml\"\n- tapOn: \"Settings\"\n- tapOn: \"Notification Preferences\"\n- tapOn: { id: \"emailNotifToggle\" }\n- tapOn: { id: \"pushNotifToggle\" }\n- tapOn: { id: \"smsNotifToggle\" }\n- back\n- tapOn: \"Theme Settings\"\n- tapOn: { id: \"themeOption_Sepia\" }\n- back\n- tapOn: \"Language Settings\"\n- tapOn: { id: \"language_Spanish\" }\n- back\n- tapOn: { id: \"saveAllSettingsButton\" }\n- assertVisible: \"Settings Saved Successfully\"\n- back # To dashboard or previous screen\n- tapOn: \"Settings\" # Re-enter settings\n- tapOn: \"Notification Preferences\"\n- assertVisible: { id: \"emailNotifToggle\", checked: false } # Assuming it was toggled off\n- assertVisible: { id: \"pushNotifToggle\", checked: false }\n- assertVisible: { id: \"smsNotifToggle\", checked: false }\n- back\n- tapOn: \"Theme Settings\"\n- assertVisible: { id: \"themeOption_Sepia\", selected: true }\n- back\n- tapOn: \"Language Settings\"\n- assertVisible: { id: \"language_Spanish\", selected: true }"
+    },
+    {
+      "instruction": "Wait for 'backgroundDataProcessingFinishedEvent' to be true (from output var), with a timeout of 10 minutes (600000 ms).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- extendedWaitUntil:\n    # This requires a visible element indicating completion, or JS polling. For now, simulate with a visible element.\n    visible: { id: \"backgroundProcessingCompleteIndicator\" }\n    timeout: 600000"
+    },
+    {
+      "instruction": "Press the Android TV Remote System Navigation Up, then Left, then Center.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- pressKey: \"Remote System Navigation Up\"\n- pressKey: \"Remote Dpad Left\" # Assuming this maps to system nav left in context\n- pressKey: \"Remote Dpad Center\""
+    },
+    {
+      "instruction": "Swipe the 'product_detail_image_viewer' from bottom to top to reveal more info, with duration 250ms.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- swipe:\n    from: { id: \"product_detail_image_viewer\" } # swipes from center\n    direction: UP # Swipes upwards from the center\n    duration: 250"
+    },
+    {
+      "instruction": "Start recording 'multi_flow_execution', run 'flow_A.yaml', then run 'flow_B.yaml' with env 'source: flow_A', then run 'flow_C.yaml', stop recording.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- startRecording: \"multi_flow_execution\"\n- runFlow: \"flow_A.yaml\"\n- runFlow:\n    file: \"flow_B.yaml\"\n    env:\n      source: \"flow_A\"\n- runFlow: \"flow_C.yaml\"\n- stopRecording"
+    },
+    {
+      "instruction": "Tap 'ProceedToPaymentButton'. If 'paymentDeclinedPopup' is visible, copy error code from 'errorCodeDisplay', then tap 'RetryPaymentButton'. Else, assert 'paymentSuccessScreen' is visible.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"ProceedToPaymentButton\" }\n- runFlow:\n    when:\n      visible: { id: \"paymentDeclinedPopup\" }\n    commands:\n      - copyTextFrom: { id: \"errorCodeDisplay\" }\n      - tapOn: { id: \"RetryPaymentButton\" }\n- runFlow:\n    when:\n      notVisible: { id: \"paymentDeclinedPopup\" }\n    commands:\n      - assertVisible: { id: \"paymentSuccessScreen\" }"
+    },
+    {
+      "instruction": "Assert the 'orderTotalAmountDisplay' shows '$${output.finalOrderTotal}' only if 'output.allValidationsPassed' is true and 'output.paymentMethodSelected' is true.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      true: \"${output.allValidationsPassed && output.paymentMethodSelected}\"\n    commands:\n      - assertVisible: \"$${output.finalOrderTotal}\""
+    },
+    {
+      "instruction": "Long press on 'chatMessageBubble_userXyz' that contains text 'Can you help me?' to open context menu.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- longPressOn:\n    id: \"chatMessageBubble_userXyz\"\n    text: \".*Can you help me?.*\""
+    },
+    {
+      "instruction": "Add 5 unique items to favorites: Tap 'itemA_fav', 'itemB_fav', 'itemC_fav', 'itemD_fav', 'itemE_fav'. Verify 'favoritesCountBadge' shows '5'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"itemA_fav\" }\n- tapOn: { id: \"itemB_fav\" }\n- tapOn: { id: \"itemC_fav\" }\n- tapOn: { id: \"itemD_fav\" }\n- tapOn: { id: \"itemE_fav\" }\n- assertVisible: { id: \"favoritesCountBadge\", text: \"5\" }"
+    },
+    {
+      "instruction": "If 'session_expired_modal_dialog' is visible, copy message from 'sessionExpiredDetailsText', take screenshot 'SessionExpiredState', then run 'force_logout_and_relogin.yaml'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runFlow:\n    when:\n      visible: { id: \"session_expired_modal_dialog\" }\n    commands:\n      - copyTextFrom: { id: \"sessionExpiredDetailsText\" }\n      - takeScreenshot: \"SessionExpiredState\"\n      - runFlow: \"force_logout_and_relogin.yaml\""
+    },
+    {
+      "instruction": "Assert the 'profile_completion_progress_bar' is visible and its text value (if any, or accessibility value) indicates '75% Complete'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"profile_completion_progress_bar\"\n    text: \".*75% Complete.*\" # Or an accessibility label for progress bars"
+    },
+    {
+      "instruction": "Retry script 'flaky_data_migration.js' 3 times. After completion, assert 'output.migrationStatus' is 'SUCCESS'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- retry:\n    maxRetries: 3\n    commands:\n      - runScript: \"flaky_data_migration.js\"\n- assertVisible: { text: \"${output.migrationStatus === 'SUCCESS' ? 'MigSuccess' : 'MigFailure_ERROR'}\" } # Indirect"
+    },
+    {
+      "instruction": "Repeat 50 times or until 'all_levels_unlocked_achievement' is visible: tap 'play_next_level_button', wait for 'level_start_animation' to end (max 3s).",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- repeat:\n    times: 50\n    while:\n      notVisible: { id: \"all_levels_unlocked_achievement\" }\n    commands:\n      - tapOn: { id: \"play_next_level_button\", optional: true }\n      - waitForAnimationToEnd: { timeout: 3000 }"
+    },
+    {
+      "instruction": "Use AI to verify that the spacing and padding around major UI blocks (like headers, cards, footers) is consistent and visually pleasing.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertWithAI:\n    assertion: \"The spacing and padding around major UI blocks such as headers, content cards, and footers are consistent across the screen and contribute to a visually pleasing and uncluttered layout.\""
+    },
+    {
+      "instruction": "Run script 'generate_oauth_signature.js', passing 'requestParams: output.apiCallParamsObject' and 'clientSecret: MAESTRO_OAUTH_CLIENT_SECRET'. Store result in 'output.oauthSignature'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- runScript:\n    file: \"generate_oauth_signature.js\"\n    env:\n      requestParams: \"${JSON.stringify(output.apiCallParamsObject || {})}\"\n      clientSecret: \"${MAESTRO_OAUTH_CLIENT_SECRET}\"\n    # Script should set output.oauthSignature"
+    },
+    {
+      "instruction": "Evaluate script: check if 'output.userInputDateString' (e.g. '2024-12-25') is a date in the past. Store boolean in 'output.isDateInPast'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- evalScript: \"${output.isDateInPast = new Date(output.userInputDateString) < new Date().setHours(0,0,0,0)}\""
+    },
+    {
+      "instruction": "Tap on the 'saveDraftButton' which must be a child of 'emailComposerFooter' and have text 'Save Draft'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn:\n    id: \"saveDraftButton\"\n    text: \"Save Draft\"\n    childOf: { id: \"emailComposerFooter\" }"
+    },
+    {
+      "instruction": "Assert the 'update_failed_with_code_E401_dialog' is visible and its detailed message contains 'Unauthorized access'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- assertVisible:\n    id: \"update_failed_with_code_E401_dialog\"\n    containsDescendants:\n      - \".*Unauthorized access.*\""
+    },
+    {
+      "instruction": "Input a random 16-character hexadecimal key into 'encryptionKeySetupField'.",
+      "output": "appId: com.qoneqt.qoneqt\n---\n- tapOn: { id: \"encryptionKeySetupField\" }\n- evalScript: \"${ let hex = ''; for(let i=0; i<16; i++) hex += Math.floor(Math.random()*16).toString(16); output.randomHexKey = hex.toUpperCase(); }\"\n- inputText: \"${output.randomHexKey}\""
+    }
+]
